@@ -4,11 +4,11 @@
 
 ## Descripción
 
-Este repositorio contiene el código de la Transformada Rápida de Fourier propuesto por Cooley-Tukkeys(1965) implementado a procesamiento de audio.
+Este repositorio contiene el código de la Transformada Rápida de Fourier propuesto por Cooley-Tukkeys(1965) implementado a procesamiento de audio. Resultados en tiempo real.
 
 ### Contenido del Repositorio
 
-1. El código con los algoritmos se encuentran en el archivo **TransformadaRapidadeFourier.py**, el cual contiene una función llamada `FFT`, otra llamado `InverseFFT` y un `Filtro Pasabajas` con los que se aplica la Transformada Rápida y la Inversa a un audio, además de que se le aplica un filtro pasabajas y se exporta en un archivo .wav. Todo esto se realiza en el archivo **main.py**.
+1. El código con los algoritmos se encuentran en el archivo **TransformadaRapidadeFourier.py**, el cual contiene una función llamada `FFT`, otra llamado `InverseFFT` y un `Filtro Pasabajas` con los que se aplica la Transformada Rápida y la Inversa a un audio, además de que se le aplica un filtro pasabajas y se exporta en un archivo .wav. Todo esto se realiza en el archivo **main.py**. Las gráficas resultantes se pueden visualizar en tiempo real y el audio también se reproduce mientras se procesa. Al final es exportado en la carpeta raíz.
 
 2. Una carpeta llamada **/audio** con 3 canciones de Youtube Studio, las cuales se procesaron con estos algoritmos.
 
