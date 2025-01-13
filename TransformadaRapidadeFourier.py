@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 def FFT(x):
     """
@@ -47,15 +48,20 @@ def potenciade2(n):
     """ Encuentra el piso de la potencia de 2 más cercana a n"""
     return 2 ** int(np.floor(np.log2(n)))
 
-def realse_bajos(fft_result, frecuencias, frecuencia_de_corte = 200, amp=1):
-    """ Función para realsar los graves de una canción """
-    for i in range(len(fft_result)):
-        if np.abs(frecuencias[i]) < frecuencia_de_corte:
-            fft_result[i] = fft_result[i]*amp
-    return fft_result
-    
 def frecuencias(N, sample_rate):
     """ Calcula las frecuencias del array """
     k = np.arange(N)
     freqs = np.where(k < N // 2, k, k - N) * sample_rate / N
     return freqs
+    
+def convertir_mp3_a_wav(mp3_path, wav_path):
+    os.system(f"ffmpeg -i {mp3_path} -ar 44100 -ac 1 {wav_path}")
+    
+def filtro_pasabajas(fft_result, frecuencias, frecuencia_de_corte = 150, amp=0):
+    """ Función para filtrar coeficientes arriba de una frecuencia dada """
+    for i in range(len(frecuencias)):
+        if np.abs(frecuencias[i]) > frecuencia_de_corte:
+            fft_result[i] = 0
+    return fft_result
+    
+
